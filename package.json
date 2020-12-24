@@ -25,7 +25,8 @@
   },
   "scripts": {
     "tailwind:build": "tailwind build ./src/styles/tailwind.css -o ./src/styles/styles.css",
-    "start": "npm run tailwind:build & react-scripts start",
+    "start": "npm run apollo:codegen && npm run tailwind:build & react-scripts start",
+    "apollo:codegen": "rm -rf src/__generated__ && apollo client:codegen src/__generated__ --target=typescript --outputFlat",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -34,12 +35,6 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ],
-    "ignorePatterns": [
-      "package.json",
-      "node_modules/**",
-      "styles.css",
-      "tailwind.css"
     ]
   },
   "browserslist": {
@@ -55,6 +50,8 @@
     ]
   },
   "devDependencies": {
-    "@types/react-router-dom": "^5.1.6"
+    "@types/react-router-dom": "^5.1.6",
+    "stylelint": "^13.8.0",
+    "stylelint-config-standard": "^20.0.0"
   }
 }
