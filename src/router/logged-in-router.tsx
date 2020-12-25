@@ -3,11 +3,15 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useMe } from 'src/hooks/useMe';
 import { NotFound } from 'src/pages/404';
 import { Restaurants } from 'src/pages/client/restaurants';
+import { ConfirmEmail } from 'src/pages/user/confirm-email';
 import { Header } from '../components/header';
 
 const ClientRouter = [
-  <Route path="/" exact key="/">
+  <Route path="/" exact key={1}>
     <Restaurants />
+  </Route>,
+  <Route path="/confirm" key={2}>
+    <ConfirmEmail />
   </Route>,
 ];
 
