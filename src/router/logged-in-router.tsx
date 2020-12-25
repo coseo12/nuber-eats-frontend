@@ -4,6 +4,7 @@ import { useMe } from 'src/hooks/useMe';
 import { NotFound } from 'src/pages/404';
 import { Restaurants } from 'src/pages/client/restaurants';
 import { ConfirmEmail } from 'src/pages/user/confirm-email';
+import { EditProfile } from 'src/pages/user/edit-profile';
 import { Header } from '../components/header';
 
 const ClientRouter = [
@@ -12,6 +13,9 @@ const ClientRouter = [
   </Route>,
   <Route path="/confirm" key={2}>
     <ConfirmEmail />
+  </Route>,
+  <Route path="/edit-profile" key={3}>
+    <EditProfile />
   </Route>,
 ];
 
