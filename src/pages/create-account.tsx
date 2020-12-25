@@ -3,6 +3,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { Link, useHistory } from 'react-router-dom';
+import { Logo } from 'src/components/logo';
 import {
   createAccountMutation,
   createAccountMutationVariables,
@@ -10,7 +11,6 @@ import {
 import { UserRole } from 'src/__generated__/globalTypes';
 import { Button } from '../components/button';
 import { FormError } from '../components/form-error';
-import nuberLogo from '../images/eats-logo.svg';
 
 const CREATE_ACCOUNT_MUTATION = gql`
   mutation createAccountMutation($createAccountInput: CreateAccountInput!) {
@@ -47,7 +47,7 @@ export const CreateAccount = () => {
     } = data;
     if (ok) {
       alert('Account Created! Log in now!');
-      history.push('/login');
+      history.push('/');
     }
   };
   const [
@@ -78,7 +78,7 @@ export const CreateAccount = () => {
         <title>Create Account | Nuber eats</title>
       </Helmet>
       <div className="w-full max-w-screen-sm flex flex-col items-center">
-        <img src={nuberLogo} alt="logo" className="w-52 mb-10" />
+        <Logo className="w-52 mb-10" />
         <h4 className="w-full font-medium text-left text-3xl mb-5">
           Let's get started
         </h4>
@@ -139,7 +139,7 @@ export const CreateAccount = () => {
         </form>
         <div>
           Already have an account?{' '}
-          <Link to="/login" className="text-lime-600 hover:underline">
+          <Link to="/" className="text-lime-600 hover:underline">
             Log in now
           </Link>
         </div>
