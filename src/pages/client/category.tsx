@@ -1,14 +1,13 @@
 import { gql, useQuery } from '@apollo/client';
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link, useParams } from 'react-router-dom';
-import { CategoryContainer } from 'src/components/category-container';
-import { CategoryItem } from 'src/components/category-item';
+import { useParams } from 'react-router-dom';
 import { Pagination } from 'src/components/pagination';
 import { Restaurant } from 'src/components/restaurant';
 import { RestaurantConatainer } from 'src/components/restaurant-container';
 import { RestaurantsContainer } from 'src/components/restaurants-container';
 import { SearchContainer } from 'src/components/search-container';
+import { SearchTag } from 'src/components/search-tag';
 import { CATEGORY_FRAGMENT, RESTAURANT_FRAGMENT } from 'src/fragment';
 import { category, categoryVariables } from 'src/__generated__/category';
 
@@ -23,13 +22,6 @@ const CATEGORY_QUERY = gql`
         ...RestaurantParts
       }
       category {
-        ...CategoryParts
-      }
-    }
-    allCategories {
-      ok
-      error
-      categories {
         ...CategoryParts
       }
     }
@@ -50,13 +42,12 @@ export const Category = () => {
     {
       variables: {
         input: {
-          page: 1,
+          page,
           slug: params.slug,
         },
       },
     }
   );
-  console.log(data);
   const onNextPageClick = () => setPage(current => current + 1);
   const onPrevPageClick = () => setPage(current => current - 1);
 
@@ -68,16 +59,10 @@ export const Category = () => {
       <SearchContainer />
       {!loading && (
         <RestaurantsContainer>
-          <CategoryContainer>
-            {data?.allCategories.categories?.map(category => (
-              <Link to={`/category/${category.slug}`} key={category.id}>
-                <CategoryItem
-                  coverImg={category.coverImg || ''}
-                  name={category.name}
-                />
-              </Link>
-            ))}
-          </CategoryContainer>
+          <SearchTag
+            title={params.slug}
+            totalResults={data?.category.totalResults || 0}
+          />
           <RestaurantConatainer>
             {data?.category.restaurants?.map(restaurant => (
               <Restaurant
