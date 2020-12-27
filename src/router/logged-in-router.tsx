@@ -2,7 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useMe } from 'src/hooks/useMe';
 import { NotFound } from 'src/pages/404';
+import { Category } from 'src/pages/client/category';
 import { Restaurants } from 'src/pages/client/restaurants';
+import { Search } from 'src/pages/client/search';
 import { ConfirmEmail } from 'src/pages/user/confirm-email';
 import { EditProfile } from 'src/pages/user/edit-profile';
 import { Header } from '../components/header';
@@ -16,6 +18,12 @@ const ClientRouter = [
   </Route>,
   <Route path="/edit-profile" key={3}>
     <EditProfile />
+  </Route>,
+  <Route path="/search" key={4}>
+    <Search />
+  </Route>,
+  <Route path="/category/:slug" key={5}>
+    <Category />
   </Route>,
 ];
 
@@ -34,7 +42,9 @@ export const LoggedInRouter = () => {
       <Header />
       <Switch>
         {data.me.role === 'Client' && ClientRouter}
-        <NotFound />
+        <Route>
+          <NotFound />
+        </Route>
       </Switch>
     </Router>
   );
