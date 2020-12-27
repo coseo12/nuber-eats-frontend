@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useMe } from 'src/hooks/useMe';
 import { NotFound } from 'src/pages/404';
 import { Category } from 'src/pages/client/category';
+import { Restaurant } from 'src/pages/client/restaurant';
 import { Restaurants } from 'src/pages/client/restaurants';
 import { Search } from 'src/pages/client/search';
 import { ConfirmEmail } from 'src/pages/user/confirm-email';
@@ -24,6 +25,9 @@ const ClientRouter = [
   </Route>,
   <Route path="/category/:slug" key={5}>
     <Category />
+  </Route>,
+  <Route path="/restaurant/:id" key={6}>
+    <Restaurant />
   </Route>,
 ];
 
