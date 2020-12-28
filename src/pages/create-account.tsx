@@ -12,7 +12,7 @@ import { UserRole } from 'src/__generated__/globalTypes';
 import { Button } from '../components/button';
 import { FormError } from '../components/form-error';
 
-const CREATE_ACCOUNT_MUTATION = gql`
+export const CREATE_ACCOUNT_MUTATION = gql`
   mutation createAccountMutation($createAccountInput: CreateAccountInput!) {
     createAccount(input: $createAccountInput) {
       ok
@@ -47,7 +47,7 @@ export const CreateAccount = () => {
     } = data;
     if (ok) {
       alert('Account Created! Log in now!');
-      history.push('/');
+      history?.push('/');
     }
   };
   const [
@@ -94,7 +94,7 @@ export const CreateAccount = () => {
             name="email"
             type="email"
             required
-            placeholder="Eamil"
+            placeholder="Email"
             className="input"
           />
           {errors.email?.message && (
@@ -113,9 +113,6 @@ export const CreateAccount = () => {
           />
           {errors.password?.message && (
             <FormError errorMessage={errors.password?.message} />
-          )}
-          {errors.password?.type === 'minLength' && (
-            <FormError errorMessage="Password must be more than 10 chars." />
           )}
           <select
             ref={register({ required: true })}

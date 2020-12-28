@@ -10,7 +10,7 @@ export const SearchContainer = () => {
   const history = useHistory();
   const onSearchSubmit = () => {
     const { searchTerm } = getValues();
-    history.push({
+    history?.push({
       pathname: '/search',
       search: `?term=${searchTerm}`,
     });
