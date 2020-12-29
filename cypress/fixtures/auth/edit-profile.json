@@ -1,0 +1,9 @@
+{
+  "data": {
+    "editProfile": {
+      "ok": true,
+      "error": null,
+      "__typename": "EditProfileOutput"
+    }
+  }
+}

@@ -22,7 +22,7 @@ describe('<Login />', () => {
 
   it('should renders OK', async () => {
     await waitFor(() => {
-      expect(document.title).toBe('Login | Nuber eats');
+      expect(document.title).toBe('Login | Nuber Eats');
     });
   });
 

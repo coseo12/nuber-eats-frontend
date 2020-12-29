@@ -101,7 +101,7 @@ export const EditProfile = () => {
           })}
           className="input"
           type="email"
-          placeholder="eamil"
+          placeholder="Email"
           name="email"
           required
         />
@@ -115,7 +115,7 @@ export const EditProfile = () => {
           ref={register}
           className="input"
           type="password"
-          placeholder="password"
+          placeholder="Password"
           name="password"
         />
         <Button

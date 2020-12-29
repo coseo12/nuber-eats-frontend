@@ -39,7 +39,7 @@ describe('<CreateAccount />', () => {
 
   it('render ok', async () => {
     await waitFor(() => {
-      expect(document.title).toBe('Create Account | Nuber eats');
+      expect(document.title).toBe('Create Account | Nuber Eats');
     });
   });
 

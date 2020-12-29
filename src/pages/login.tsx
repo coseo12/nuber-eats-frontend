@@ -71,7 +71,7 @@ export const Login = () => {
   return (
     <div className="h-screen flex items-center flex-col mt-10 lg:mt-28 px-5">
       <Helmet>
-        <title>Login | Nuber eats</title>
+        <title>Login | Nuber Eats</title>
       </Helmet>
       <div className="w-full max-w-screen-sm flex flex-col items-center">
         <img src={nuberLogo} alt="logo" className="w-52 mb-10" />
