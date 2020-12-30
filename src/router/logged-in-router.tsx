@@ -7,6 +7,7 @@ import { Restaurant } from 'src/pages/client/restaurant';
 import { Restaurants } from 'src/pages/client/restaurants';
 import { Search } from 'src/pages/client/search';
 import { AddRestaurant } from 'src/pages/owner/add-restaurant';
+import { MyRestaurant } from 'src/pages/owner/my-restaurant';
 import { MyRestaurants } from 'src/pages/owner/my-restaurants';
 import { ConfirmEmail } from 'src/pages/user/confirm-email';
 import { EditProfile } from 'src/pages/user/edit-profile';
@@ -29,6 +30,7 @@ const ownerRoutes = [
 const restaurantRoutes = [
   { path: '/', component: <MyRestaurants /> },
   { path: '/add-restaurant', component: <AddRestaurant /> },
+  { path: '/restaurant/:id', component: <MyRestaurant /> },
 ];
 
 export const LoggedInRouter = () => {

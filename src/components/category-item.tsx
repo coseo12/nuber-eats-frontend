@@ -19,7 +19,7 @@ export const CategoryItem: React.FC<ICategoryItemProps> = ({
         }`}
         style={{ backgroundImage: `url(${coverImg})` }}
       ></div>
-      <span className="mt-1 text-sm text-center font-medium capitalize">
+      <span className="mt-1 text-sm text-center font-medium uppercase">
         {name}
       </span>
     </div>

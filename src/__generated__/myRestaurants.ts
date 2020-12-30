@@ -27,7 +27,7 @@ export interface myRestaurants_myRestaurants {
   __typename: "MyRestaurantsOutput";
   ok: boolean;
   error: string | null;
-  restaurants: myRestaurants_myRestaurants_restaurants[];
+  restaurants: myRestaurants_myRestaurants_restaurants[] | null;
 }
 
 export interface myRestaurants {
