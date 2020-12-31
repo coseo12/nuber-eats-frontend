@@ -19,15 +19,11 @@ const commonRoutes = [
   { path: '/edit-profile', component: <EditProfile /> },
 ];
 const clientRoutes = [
+  { path: '/', component: <Restaurants /> },
   { path: '/search', component: <Search /> },
   { path: '/category/:slug', component: <Category /> },
   { path: '/restaurant/:id', component: <Restaurant /> },
 ];
-const ownerRoutes = [
-  { path: '/', component: <Restaurants /> },
-  { path: '/search', component: <Search /> },
-];
-
 const restaurantRoutes = [
   { path: '/', component: <MyRestaurants /> },
   { path: '/add-restaurant', component: <AddRestaurant /> },
