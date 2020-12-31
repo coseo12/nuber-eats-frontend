@@ -6,6 +6,7 @@ import { Category } from 'src/pages/client/category';
 import { Restaurant } from 'src/pages/client/restaurant';
 import { Restaurants } from 'src/pages/client/restaurants';
 import { Search } from 'src/pages/client/search';
+import { Order } from 'src/pages/order';
 import { AddDish } from 'src/pages/owner/add-dish';
 import { AddRestaurant } from 'src/pages/owner/add-restaurant';
 import { MyRestaurant } from 'src/pages/owner/my-restaurant';
@@ -17,6 +18,7 @@ import { Header } from '../components/header';
 const commonRoutes = [
   { path: '/confirm', component: <ConfirmEmail /> },
   { path: '/edit-profile', component: <EditProfile /> },
+  { path: '/orders/:id', component: <Order /> },
 ];
 const clientRoutes = [
   { path: '/', component: <Restaurants /> },
