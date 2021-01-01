@@ -6,6 +6,7 @@ import { Category } from 'src/pages/client/category';
 import { Restaurant } from 'src/pages/client/restaurant';
 import { Restaurants } from 'src/pages/client/restaurants';
 import { Search } from 'src/pages/client/search';
+import { Dashboard } from 'src/pages/driver/dashboard';
 import { Order } from 'src/pages/order';
 import { AddDish } from 'src/pages/owner/add-dish';
 import { AddRestaurant } from 'src/pages/owner/add-restaurant';
@@ -13,6 +14,7 @@ import { MyRestaurant } from 'src/pages/owner/my-restaurant';
 import { MyRestaurants } from 'src/pages/owner/my-restaurants';
 import { ConfirmEmail } from 'src/pages/user/confirm-email';
 import { EditProfile } from 'src/pages/user/edit-profile';
+import { UserRole } from 'src/__generated__/globalTypes';
 import { Header } from '../components/header';
 
 const commonRoutes = [
@@ -32,6 +34,7 @@ const restaurantRoutes = [
   { path: '/restaurant/:id', component: <MyRestaurant /> },
   { path: '/restaurant/:restaurantId/add-dish', component: <AddDish /> },
 ];
+const driverRoutes = [{ path: '/', component: <Dashboard /> }];
 
 export const LoggedInRouter = () => {
   const { data, loading, error } = useMe();
@@ -47,14 +50,20 @@ export const LoggedInRouter = () => {
     <Router>
       <Header />
       <Switch>
-        {data.me.role === 'Client' &&
+        {data.me.role === UserRole.Client &&
           clientRoutes.map(route => (
             <Route key={route.path} exact path={route.path}>
               {route.component}
             </Route>
           ))}
-        {data.me.role === 'Owner' &&
+        {data.me.role === UserRole.Owner &&
           restaurantRoutes.map(route => (
+            <Route key={route.path} exact path={route.path}>
+              {route.component}
+            </Route>
+          ))}
+        {data.me.role === UserRole.Delivery &&
+          driverRoutes.map(route => (
             <Route key={route.path} exact path={route.path}>
               {route.component}
             </Route>
