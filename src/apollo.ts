@@ -15,17 +15,11 @@ const token = localStorage.getItem(LOCALSTORAGE_TOKEN);
 export const isLoggedInVar = makeVar(Boolean(token));
 export const authToken = makeVar(token);
 
-const url =
-  process.env.NODE_ENV === 'production'
-    ? 'https://s-nuber-eats-backend.herokuapp.com/graphql'
-    : 'http://localhost:4000/graphql';
-const urlWs =
-  process.env.NODE_ENV === 'production'
-    ? 'ws://s-nuber-eats-backend.herokuapp.com/graphql'
-    : 'ws://localhost:4000/graphql';
-
 const wsLink = new WebSocketLink({
-  uri: urlWs,
+  uri:
+    process.env.NODE_ENV === 'production'
+      ? 'ws://s-nuber-eats-backend.herokuapp.com/graphql'
+      : 'ws://localhost:4000/graphql',
   options: {
     reconnect: true,
     connectionParams: {
@@ -35,7 +29,10 @@ const wsLink = new WebSocketLink({
 });
 
 const httpLink = createHttpLink({
-  uri: url,
+  uri:
+    process.env.NODE_ENV === 'production'
+      ? 'https://s-nuber-eats-backend.herokuapp.com/graphql'
+      : 'http://localhost:4000/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
