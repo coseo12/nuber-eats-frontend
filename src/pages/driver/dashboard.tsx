@@ -77,7 +77,7 @@ export const Dashboard = () => {
       );
     }
   };
-
+  const key: string = process.env.REACT_APP_GOOGLE_KEY || '';
   return (
     <div>
       <Helmet>
@@ -93,7 +93,7 @@ export const Dashboard = () => {
           defaultZoom={16}
           draggable={false}
           defaultCenter={{ lat: 33, lng: 127 }}
-          bootstrapURLKeys={{ key: 'AIzaSyBM0k_VvlAs52qP7mRiTFq86EX1lhDLJc4' }}
+          bootstrapURLKeys={{ key }}
         >
           {/* <Driver lat={driverCoords.lat} lng={driverCoords.lng} /> */}
         </GoogleMapReact>
