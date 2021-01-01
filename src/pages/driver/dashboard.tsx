@@ -100,7 +100,7 @@ export const Dashboard = () => {
       );
     }
   };
-  const key: string = process.env.REACT_APP_GOOGLE_KEY || '';
+  const key: string = 'AIzaSyBM0k_VvlAs52qP7mRiTFq86EX1lhDLJc4';
 
   const { data: cookedOrderData } = useSubscription<cookedOrders>(
     COOKED_ORDERS_SUBSCRIPTION
