@@ -100,7 +100,7 @@ export const Dashboard = () => {
       );
     }
   };
-  const key: string = 'AIzaSyBM0k_VvlAs52qP7mRiTFq86EX1lhDLJc4';
+  const key: string = '';
 
   const { data: cookedOrderData } = useSubscription<cookedOrders>(
     COOKED_ORDERS_SUBSCRIPTION
